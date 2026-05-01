@@ -2,7 +2,7 @@
 
 import { X, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import type { Tool } from "@/lib/tools-data"
+import type { Tool } from "@/lib/data"
 
 interface CompareBarProps {
   tools: Tool[]

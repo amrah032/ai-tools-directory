@@ -7,7 +7,7 @@ import { CategoryFilters } from "@/components/category-filters"
 import { ToolsGrid } from "@/components/tools-grid"
 import { CompareBar } from "@/components/compare-bar"
 import { CompareModal } from "@/components/compare-modal"
-import { tools } from "@/lib/tools-data"
+import { tools } from "@/lib/data"
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("")

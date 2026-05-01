@@ -2,7 +2,7 @@
 
 import { X, Check, Minus } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import type { Tool } from "@/lib/tools-data"
+import type { Tool } from "@/lib/data"
 
 interface CompareModalProps {
   tools: Tool[]

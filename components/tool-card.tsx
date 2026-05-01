@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils"
 import { ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import type { Tool } from "@/lib/tools-data"
+import type { Tool } from "@/lib/data"
 
 export type { Tool }
 

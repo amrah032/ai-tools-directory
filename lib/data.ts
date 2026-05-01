@@ -1,3 +1,8 @@
+export interface ProsCons {
+  pros: string[]
+  cons: string[]
+}
+
 export interface Tool {
   id: string
   name: string
@@ -5,9 +10,13 @@ export interface Tool {
   category: string
   pricing: "Free" | "Freemium" | "Paid" | "Enterprise"
   priceRange: string
+  monthlyPrice: number | null
+  userRating: number
   icon: string
   features: string[]
   useCase: string
+  prosCons: ProsCons
+  affiliateLink: string
 }
 
 export const tools: Tool[] = [
@@ -18,9 +27,16 @@ export const tools: Tool[] = [
     category: "video",
     pricing: "Freemium",
     priceRange: "$12-76/mo",
+    monthlyPrice: 12,
+    userRating: 4.6,
     icon: "🎬",
     features: ["Gen-2 video generation", "Motion brush", "Inpainting", "Green screen removal", "4K export"],
     useCase: "Best for filmmakers, content creators, and marketers who need AI-assisted video editing and generation.",
+    prosCons: {
+      pros: ["Industry-leading video generation quality", "Intuitive interface", "Regular feature updates"],
+      cons: ["Credit system can be expensive", "Requires good GPU for real-time preview", "Limited free tier"],
+    },
+    affiliateLink: "https://runwayml.com/?ref=aitools",
   },
   {
     id: "2",
@@ -29,9 +45,16 @@ export const tools: Tool[] = [
     category: "chat",
     pricing: "Freemium",
     priceRange: "Free / $20/mo",
+    monthlyPrice: 20,
+    userRating: 4.8,
     icon: "💬",
     features: ["GPT-4 access", "Code interpreter", "Custom GPTs", "Web browsing", "Image generation"],
     useCase: "Ideal for general-purpose AI assistance, writing, coding help, and creative brainstorming.",
+    prosCons: {
+      pros: ["Versatile and capable", "Excellent for coding and writing", "Large plugin ecosystem"],
+      cons: ["Can hallucinate facts", "Response limits on free tier", "Privacy concerns for sensitive data"],
+    },
+    affiliateLink: "https://chat.openai.com/?ref=aitools",
   },
   {
     id: "3",
@@ -40,9 +63,16 @@ export const tools: Tool[] = [
     category: "image",
     pricing: "Paid",
     priceRange: "$10-60/mo",
+    monthlyPrice: 10,
+    userRating: 4.7,
     icon: "🎨",
     features: ["High-quality images", "Style consistency", "Variation tools", "Upscaling", "Pan & zoom"],
     useCase: "Perfect for artists, designers, and creatives seeking artistic and stylized image generation.",
+    prosCons: {
+      pros: ["Best-in-class artistic quality", "Strong community", "Consistent style outputs"],
+      cons: ["Discord-only interface", "No API access", "Steep learning curve for prompts"],
+    },
+    affiliateLink: "https://midjourney.com/?ref=aitools",
   },
   {
     id: "4",
@@ -51,9 +81,16 @@ export const tools: Tool[] = [
     category: "code",
     pricing: "Paid",
     priceRange: "$10-19/mo",
+    monthlyPrice: 10,
+    userRating: 4.5,
     icon: "👨‍💻",
     features: ["Real-time suggestions", "Multi-language support", "Context awareness", "Chat interface", "IDE integration"],
     useCase: "Essential for developers looking to accelerate coding with AI-powered autocomplete and suggestions.",
+    prosCons: {
+      pros: ["Seamless IDE integration", "Excellent context understanding", "Supports most languages"],
+      cons: ["Subscription required", "Can suggest insecure code", "May reproduce licensed code"],
+    },
+    affiliateLink: "https://github.com/features/copilot?ref=aitools",
   },
   {
     id: "5",
@@ -62,9 +99,16 @@ export const tools: Tool[] = [
     category: "audio",
     pricing: "Freemium",
     priceRange: "Free / $5-99/mo",
+    monthlyPrice: 5,
+    userRating: 4.7,
     icon: "🎙️",
     features: ["Voice cloning", "Multilingual TTS", "Emotion control", "API access", "Audio editing"],
     useCase: "Great for podcasters, audiobook creators, and developers building voice-enabled applications.",
+    prosCons: {
+      pros: ["Most realistic voice synthesis", "Easy voice cloning", "Great API"],
+      cons: ["Usage limits on lower tiers", "Voice cloning requires samples", "Can be misused"],
+    },
+    affiliateLink: "https://elevenlabs.io/?ref=aitools",
   },
   {
     id: "6",
@@ -73,9 +117,16 @@ export const tools: Tool[] = [
     category: "text",
     pricing: "Paid",
     priceRange: "$39-99/mo",
+    monthlyPrice: 39,
+    userRating: 4.4,
     icon: "✍️",
     features: ["Brand voice", "Templates", "SEO optimization", "Team collaboration", "Chrome extension"],
     useCase: "Best for marketing teams and content creators who need on-brand, SEO-optimized copy at scale.",
+    prosCons: {
+      pros: ["Excellent for marketing copy", "Strong brand voice features", "Good templates"],
+      cons: ["Expensive for individuals", "Output can be generic", "Requires editing"],
+    },
+    affiliateLink: "https://jasper.ai/?ref=aitools",
   },
   {
     id: "7",
@@ -84,9 +135,16 @@ export const tools: Tool[] = [
     category: "image",
     pricing: "Freemium",
     priceRange: "Free / Credits",
+    monthlyPrice: null,
+    userRating: 4.6,
     icon: "🖼️",
     features: ["Text rendering", "High accuracy", "ChatGPT integration", "Edit capabilities", "API access"],
     useCase: "Ideal for those who need accurate text in images and precise prompt interpretation.",
+    prosCons: {
+      pros: ["Best text rendering in images", "High prompt accuracy", "Easy ChatGPT access"],
+      cons: ["Credit-based pricing", "Less artistic than Midjourney", "Safety filters can be restrictive"],
+    },
+    affiliateLink: "https://openai.com/dall-e-3?ref=aitools",
   },
   {
     id: "8",
@@ -95,9 +153,16 @@ export const tools: Tool[] = [
     category: "video",
     pricing: "Paid",
     priceRange: "$22-67/mo",
+    monthlyPrice: 22,
+    userRating: 4.5,
     icon: "📹",
     features: ["AI avatars", "140+ languages", "Custom avatars", "Screen recording", "Templates"],
     useCase: "Perfect for training videos, corporate communications, and multilingual content at scale.",
+    prosCons: {
+      pros: ["Professional AI avatars", "Great for corporate videos", "Easy localization"],
+      cons: ["Avatars can look uncanny", "Limited customization", "No real-time generation"],
+    },
+    affiliateLink: "https://synthesia.io/?ref=aitools",
   },
   {
     id: "9",
@@ -106,9 +171,16 @@ export const tools: Tool[] = [
     category: "chat",
     pricing: "Freemium",
     priceRange: "Free / $20/mo",
+    monthlyPrice: 20,
+    userRating: 4.7,
     icon: "🤖",
     features: ["Long context", "Document analysis", "Coding assistance", "Artifacts", "Projects"],
     useCase: "Best for research, long-form writing, and nuanced conversations requiring careful reasoning.",
+    prosCons: {
+      pros: ["200K context window", "Thoughtful responses", "Great for analysis"],
+      cons: ["Slower than GPT-4", "More cautious/verbose", "Fewer integrations"],
+    },
+    affiliateLink: "https://claude.ai/?ref=aitools",
   },
   {
     id: "10",
@@ -117,9 +189,16 @@ export const tools: Tool[] = [
     category: "code",
     pricing: "Freemium",
     priceRange: "Free / $20/mo",
+    monthlyPrice: 20,
+    userRating: 4.8,
     icon: "⌨️",
     features: ["Codebase chat", "Multi-file editing", "Error fixing", "Code generation", "Git integration"],
     useCase: "Ideal for developers who want a full IDE experience with deeply integrated AI capabilities.",
+    prosCons: {
+      pros: ["Full IDE experience", "Understands entire codebase", "Multi-file edits"],
+      cons: ["VS Code fork limitations", "Requires learning new workflows", "Pro tier needed for best models"],
+    },
+    affiliateLink: "https://cursor.sh/?ref=aitools",
   },
   {
     id: "11",
@@ -128,9 +207,16 @@ export const tools: Tool[] = [
     category: "text",
     pricing: "Freemium",
     priceRange: "Free / $36-49/mo",
+    monthlyPrice: 36,
+    userRating: 4.3,
     icon: "📝",
     features: ["90+ templates", "Brand voice", "Workflow automation", "Team features", "Integrations"],
     useCase: "Great for sales teams and marketers who need quick, templated content generation.",
+    prosCons: {
+      pros: ["Many templates", "Good for quick copy", "Free tier available"],
+      cons: ["Output quality varies", "Better alternatives exist", "Limited customization"],
+    },
+    affiliateLink: "https://copy.ai/?ref=aitools",
   },
   {
     id: "12",
@@ -139,9 +225,16 @@ export const tools: Tool[] = [
     category: "audio",
     pricing: "Freemium",
     priceRange: "Free / $19-75/mo",
+    monthlyPrice: 19,
+    userRating: 4.4,
     icon: "🔊",
     features: ["120+ voices", "Voice cloning", "Video dubbing", "Pitch control", "Commercial license"],
     useCase: "Perfect for creating professional voiceovers for videos, presentations, and e-learning.",
+    prosCons: {
+      pros: ["Many voice options", "Commercial rights included", "Easy to use"],
+      cons: ["Less realistic than ElevenLabs", "Limited free tier", "Some voices sound robotic"],
+    },
+    affiliateLink: "https://murf.ai/?ref=aitools",
   },
   {
     id: "13",
@@ -150,9 +243,16 @@ export const tools: Tool[] = [
     category: "image",
     pricing: "Free",
     priceRange: "Free (self-host)",
+    monthlyPrice: null,
+    userRating: 4.5,
     icon: "🌀",
     features: ["Open source", "Custom models", "ControlNet", "Inpainting", "Local deployment"],
     useCase: "Best for technical users who want full control and customization over their image generation.",
+    prosCons: {
+      pros: ["Completely free", "Unlimited generations", "Full customization"],
+      cons: ["Requires technical setup", "Needs powerful GPU", "Steeper learning curve"],
+    },
+    affiliateLink: "https://stability.ai/?ref=aitools",
   },
   {
     id: "14",
@@ -161,9 +261,16 @@ export const tools: Tool[] = [
     category: "chat",
     pricing: "Freemium",
     priceRange: "Free / $20/mo",
+    monthlyPrice: 20,
+    userRating: 4.6,
     icon: "🔍",
     features: ["Real-time search", "Source citations", "Follow-up questions", "File analysis", "Collections"],
     useCase: "Ideal for researchers and knowledge workers who need sourced, up-to-date information.",
+    prosCons: {
+      pros: ["Always cites sources", "Real-time information", "Great for research"],
+      cons: ["Limited creative tasks", "Can miss nuance", "Pro needed for best models"],
+    },
+    affiliateLink: "https://perplexity.ai/?ref=aitools",
   },
   {
     id: "15",
@@ -172,8 +279,15 @@ export const tools: Tool[] = [
     category: "video",
     pricing: "Freemium",
     priceRange: "Free / $12-24/mo",
+    monthlyPrice: 12,
+    userRating: 4.5,
     icon: "🎞️",
     features: ["Overdub voice", "Filler word removal", "Transcription", "Screen recording", "AI eye contact"],
     useCase: "Great for podcasters and video creators who want text-based editing workflows.",
+    prosCons: {
+      pros: ["Revolutionary text-based editing", "Excellent transcription", "All-in-one solution"],
+      cons: ["Learning curve", "Heavy resource usage", "Some features feel beta"],
+    },
+    affiliateLink: "https://descript.com/?ref=aitools",
   },
 ]
