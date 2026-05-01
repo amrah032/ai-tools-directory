@@ -1,4 +1,14 @@
-import type { Tool } from "@/components/tool-card"
+export interface Tool {
+  id: string
+  name: string
+  description: string
+  category: string
+  pricing: "Free" | "Freemium" | "Paid" | "Enterprise"
+  priceRange: string
+  icon: string
+  features: string[]
+  useCase: string
+}
 
 export const tools: Tool[] = [
   {
@@ -7,7 +17,10 @@ export const tools: Tool[] = [
     description: "AI-powered video editing and generation platform for creative professionals.",
     category: "video",
     pricing: "Freemium",
+    priceRange: "$12-76/mo",
     icon: "🎬",
+    features: ["Gen-2 video generation", "Motion brush", "Inpainting", "Green screen removal", "4K export"],
+    useCase: "Best for filmmakers, content creators, and marketers who need AI-assisted video editing and generation.",
   },
   {
     id: "2",
@@ -15,7 +28,10 @@ export const tools: Tool[] = [
     description: "Advanced conversational AI for natural language understanding and generation.",
     category: "chat",
     pricing: "Freemium",
+    priceRange: "Free / $20/mo",
     icon: "💬",
+    features: ["GPT-4 access", "Code interpreter", "Custom GPTs", "Web browsing", "Image generation"],
+    useCase: "Ideal for general-purpose AI assistance, writing, coding help, and creative brainstorming.",
   },
   {
     id: "3",
@@ -23,7 +39,10 @@ export const tools: Tool[] = [
     description: "Create stunning AI-generated images from text descriptions.",
     category: "image",
     pricing: "Paid",
+    priceRange: "$10-60/mo",
     icon: "🎨",
+    features: ["High-quality images", "Style consistency", "Variation tools", "Upscaling", "Pan & zoom"],
+    useCase: "Perfect for artists, designers, and creatives seeking artistic and stylized image generation.",
   },
   {
     id: "4",
@@ -31,7 +50,10 @@ export const tools: Tool[] = [
     description: "AI-powered code completion and suggestions for developers.",
     category: "code",
     pricing: "Paid",
+    priceRange: "$10-19/mo",
     icon: "👨‍💻",
+    features: ["Real-time suggestions", "Multi-language support", "Context awareness", "Chat interface", "IDE integration"],
+    useCase: "Essential for developers looking to accelerate coding with AI-powered autocomplete and suggestions.",
   },
   {
     id: "5",
@@ -39,7 +61,10 @@ export const tools: Tool[] = [
     description: "Realistic AI voice synthesis and cloning for audio content.",
     category: "audio",
     pricing: "Freemium",
+    priceRange: "Free / $5-99/mo",
     icon: "🎙️",
+    features: ["Voice cloning", "Multilingual TTS", "Emotion control", "API access", "Audio editing"],
+    useCase: "Great for podcasters, audiobook creators, and developers building voice-enabled applications.",
   },
   {
     id: "6",
@@ -47,7 +72,10 @@ export const tools: Tool[] = [
     description: "AI writing assistant for marketing copy and content creation.",
     category: "text",
     pricing: "Paid",
+    priceRange: "$39-99/mo",
     icon: "✍️",
+    features: ["Brand voice", "Templates", "SEO optimization", "Team collaboration", "Chrome extension"],
+    useCase: "Best for marketing teams and content creators who need on-brand, SEO-optimized copy at scale.",
   },
   {
     id: "7",
@@ -55,7 +83,10 @@ export const tools: Tool[] = [
     description: "OpenAI's latest image generation model with improved accuracy and detail.",
     category: "image",
     pricing: "Freemium",
+    priceRange: "Free / Credits",
     icon: "🖼️",
+    features: ["Text rendering", "High accuracy", "ChatGPT integration", "Edit capabilities", "API access"],
+    useCase: "Ideal for those who need accurate text in images and precise prompt interpretation.",
   },
   {
     id: "8",
@@ -63,7 +94,10 @@ export const tools: Tool[] = [
     description: "Create AI-generated videos with virtual presenters from text.",
     category: "video",
     pricing: "Paid",
+    priceRange: "$22-67/mo",
     icon: "📹",
+    features: ["AI avatars", "140+ languages", "Custom avatars", "Screen recording", "Templates"],
+    useCase: "Perfect for training videos, corporate communications, and multilingual content at scale.",
   },
   {
     id: "9",
@@ -71,7 +105,10 @@ export const tools: Tool[] = [
     description: "Anthropic's AI assistant for thoughtful, nuanced conversations.",
     category: "chat",
     pricing: "Freemium",
+    priceRange: "Free / $20/mo",
     icon: "🤖",
+    features: ["Long context", "Document analysis", "Coding assistance", "Artifacts", "Projects"],
+    useCase: "Best for research, long-form writing, and nuanced conversations requiring careful reasoning.",
   },
   {
     id: "10",
@@ -79,7 +116,10 @@ export const tools: Tool[] = [
     description: "AI-first code editor with intelligent code completion and refactoring.",
     category: "code",
     pricing: "Freemium",
+    priceRange: "Free / $20/mo",
     icon: "⌨️",
+    features: ["Codebase chat", "Multi-file editing", "Error fixing", "Code generation", "Git integration"],
+    useCase: "Ideal for developers who want a full IDE experience with deeply integrated AI capabilities.",
   },
   {
     id: "11",
@@ -87,7 +127,10 @@ export const tools: Tool[] = [
     description: "AI-powered copywriting tool for marketing and sales content.",
     category: "text",
     pricing: "Freemium",
+    priceRange: "Free / $36-49/mo",
     icon: "📝",
+    features: ["90+ templates", "Brand voice", "Workflow automation", "Team features", "Integrations"],
+    useCase: "Great for sales teams and marketers who need quick, templated content generation.",
   },
   {
     id: "12",
@@ -95,7 +138,10 @@ export const tools: Tool[] = [
     description: "AI voice generator for voiceovers and audio content creation.",
     category: "audio",
     pricing: "Freemium",
+    priceRange: "Free / $19-75/mo",
     icon: "🔊",
+    features: ["120+ voices", "Voice cloning", "Video dubbing", "Pitch control", "Commercial license"],
+    useCase: "Perfect for creating professional voiceovers for videos, presentations, and e-learning.",
   },
   {
     id: "13",
@@ -103,7 +149,10 @@ export const tools: Tool[] = [
     description: "Open-source AI image generation model with extensive customization.",
     category: "image",
     pricing: "Free",
+    priceRange: "Free (self-host)",
     icon: "🌀",
+    features: ["Open source", "Custom models", "ControlNet", "Inpainting", "Local deployment"],
+    useCase: "Best for technical users who want full control and customization over their image generation.",
   },
   {
     id: "14",
@@ -111,7 +160,10 @@ export const tools: Tool[] = [
     description: "AI-powered search engine with conversational responses.",
     category: "chat",
     pricing: "Freemium",
+    priceRange: "Free / $20/mo",
     icon: "🔍",
+    features: ["Real-time search", "Source citations", "Follow-up questions", "File analysis", "Collections"],
+    useCase: "Ideal for researchers and knowledge workers who need sourced, up-to-date information.",
   },
   {
     id: "15",
@@ -119,6 +171,9 @@ export const tools: Tool[] = [
     description: "All-in-one audio and video editing with AI transcription.",
     category: "video",
     pricing: "Freemium",
+    priceRange: "Free / $12-24/mo",
     icon: "🎞️",
+    features: ["Overdub voice", "Filler word removal", "Transcription", "Screen recording", "AI eye contact"],
+    useCase: "Great for podcasters and video creators who want text-based editing workflows.",
   },
 ]

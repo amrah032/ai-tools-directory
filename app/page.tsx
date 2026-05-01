@@ -6,12 +6,14 @@ import { SearchBar } from "@/components/search-bar"
 import { CategoryFilters } from "@/components/category-filters"
 import { ToolsGrid } from "@/components/tools-grid"
 import { CompareBar } from "@/components/compare-bar"
+import { CompareModal } from "@/components/compare-modal"
 import { tools } from "@/lib/tools-data"
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("all")
   const [selectedTools, setSelectedTools] = useState<string[]>([])
+  const [isCompareModalOpen, setIsCompareModalOpen] = useState(false)
 
   const filteredTools = useMemo(() => {
     return tools.filter((tool) => {
@@ -44,6 +46,16 @@ export default function Home() {
 
   const handleClearCompare = () => {
     setSelectedTools([])
+  }
+
+  const handleCompareNow = () => {
+    if (selectedTools.length >= 2) {
+      setIsCompareModalOpen(true)
+    }
+  }
+
+  const handleCloseModal = () => {
+    setIsCompareModalOpen(false)
   }
 
   return (
@@ -99,6 +111,14 @@ export default function Home() {
         tools={selectedToolsData}
         onRemove={handleRemoveFromCompare}
         onClear={handleClearCompare}
+        onCompareNow={handleCompareNow}
+      />
+
+      {/* Compare Modal */}
+      <CompareModal
+        tools={selectedToolsData}
+        isOpen={isCompareModalOpen}
+        onClose={handleCloseModal}
       />
     </div>
   )

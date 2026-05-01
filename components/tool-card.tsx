@@ -3,15 +3,9 @@
 import { cn } from "@/lib/utils"
 import { ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import type { Tool } from "@/lib/tools-data"
 
-export interface Tool {
-  id: string
-  name: string
-  description: string
-  category: string
-  pricing: "Free" | "Freemium" | "Paid" | "Enterprise"
-  icon: string
-}
+export type { Tool }
 
 interface ToolCardProps {
   tool: Tool

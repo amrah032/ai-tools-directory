@@ -2,19 +2,20 @@
 
 import { X, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import type { Tool } from "./tool-card"
+import type { Tool } from "@/lib/tools-data"
 
 interface CompareBarProps {
   tools: Tool[]
   onRemove: (toolId: string) => void
   onClear: () => void
+  onCompareNow: () => void
 }
 
-export function CompareBar({ tools, onRemove, onClear }: CompareBarProps) {
+export function CompareBar({ tools, onRemove, onClear, onCompareNow }: CompareBarProps) {
   if (tools.length === 0) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur-sm border-t border-border p-4 z-50">
+    <div className="fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur-sm border-t border-border p-4 z-40">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
         <div className="flex items-center gap-2 flex-wrap">
           <span className="text-sm text-muted-foreground mr-2">
@@ -40,7 +41,12 @@ export function CompareBar({ tools, onRemove, onClear }: CompareBarProps) {
           <Button variant="ghost" size="sm" onClick={onClear}>
             Clear all
           </Button>
-          <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90">
+          <Button 
+            size="sm" 
+            className="bg-accent text-accent-foreground hover:bg-accent/90"
+            onClick={onCompareNow}
+            disabled={tools.length < 2}
+          >
             Compare Now
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
