@@ -84,7 +84,7 @@ export default function Home() {
         </section>
 
         {/* Results Info */}
-        <div className="flex items-center justify-between mb-6">
+        <div id="tools-directory" className="flex items-center justify-between mb-6 scroll-mt-24">
           <p className="text-sm text-muted-foreground">
             Showing <span className="font-medium text-foreground">{filteredTools.length}</span> tools
             {selectedCategory !== "all" && (
