@@ -32,10 +32,10 @@ export function ToolCard({ tool, isSelected, onCompareToggle }: ToolCardProps) {
             <h3 className="font-semibold text-foreground truncate">{tool.name}</h3>
             <ExternalLink className="h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
-          <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
+          <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
             {tool.description}
           </p>
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2 mb-3">
             <span
               className={cn(
                 "px-2.5 py-0.5 text-xs font-medium rounded-full border",
@@ -44,13 +44,30 @@ export function ToolCard({ tool, isSelected, onCompareToggle }: ToolCardProps) {
             >
               {tool.pricing}
             </span>
+            {tool.monthlyPrice !== null && (
+              <span className="text-xs text-muted-foreground">
+                ${tool.monthlyPrice}/mo
+              </span>
+            )}
+          </div>
+          <div className="flex items-center gap-2">
             <Button
-              variant={isSelected ? "default" : "outline"}
+              asChild
+              size="sm"
+              className="flex-1 bg-accent text-accent-foreground hover:bg-accent/90"
+            >
+              <a href={tool.affiliateLink} target="_blank" rel="noopener noreferrer">
+                Get Started
+                <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
+              </a>
+            </Button>
+            <Button
+              variant={isSelected ? "secondary" : "outline"}
               size="sm"
               onClick={() => onCompareToggle(tool.id)}
               className={cn(
-                "text-xs",
-                isSelected && "bg-accent text-accent-foreground hover:bg-accent/90"
+                "text-xs px-3",
+                isSelected && "bg-secondary text-foreground border-accent"
               )}
             >
               {isSelected ? "Selected" : "Compare"}
